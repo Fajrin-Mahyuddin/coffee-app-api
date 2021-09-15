@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { firebaseAdminConfig } = require('./admin-firebase');
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 const data = [
 	{
