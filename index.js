@@ -334,5 +334,8 @@ app.get('/user/cart/:uid', (req, res) => {
 	console.log("db cart----", req.params)
 	res.status(200).json(db_cart.filter(item => item.uid === req.params.uid));
 });
+app.get('/testing', (req, res) => {
+	res.send("oke");
+});
 
 app.listen(port, () => console.log("I am listening !"))
