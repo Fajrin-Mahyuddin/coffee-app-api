@@ -322,18 +322,11 @@ app.post('/product/cart/add', (req, res) => {
 	}
 });
 
-app.post('/auth/token-validate', async (req, res) => {
-	const token = req.body;
-	await firebaseAdminConfig.auth().verifyIdToken(token)
-		.then(response => {
-			res.status(200).json(response);
-		}).catch(err => res.status(401).json(err))
-})
-
 app.get('/user/cart/:uid', (req, res) => {
-	console.log("db cart----", req.params)
+	console.log("db cart----", req.params.uid)
 	res.status(200).json(db_cart.filter(item => item.uid === req.params.uid));
 });
+
 app.get('/testing', (req, res) => {
 	res.send("oke");
 });
